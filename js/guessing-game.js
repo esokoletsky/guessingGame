@@ -30,8 +30,8 @@ let shuffle = array => {
 };
 
 class Game {
-  constructor(playersGuess = null) {
-    this.playersGuess = playersGuess;
+  constructor() {
+    this.playersGuess = null;
     this.pastGuesses = [];
     this.winningNumber = generateWinningNumber();
   }
