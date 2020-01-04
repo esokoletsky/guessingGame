@@ -55,4 +55,32 @@ class Game {
 
     return this.checkGuess();
   }
+
+  checkGuess() {
+    let feedbackText = "";
+
+    if (this.playersGuess === this.winningNumber) {
+      feedbackText = "You Win!";
+    } else if (this.pastGuesses.includes(this.playersGuess)) {
+      feedbackText = "You have already guessed that number.";
+    } else {
+      this.pastGuesses.push(this.playersGuess);
+    }
+    if (this.pastGuesses.length === 5) {
+      feedbackText = "You Lose.";
+    } else {
+      diff = this.difference();
+    }
+    if (diff < 10) {
+      feedbackText = "You're burning up!";
+    } else if (diff < 25) {
+      feedbackText = "You're lukewarm.";
+    } else if (diff < 50) {
+      feedbackText = "You're a bit chilly.";
+    } else {
+      feedbackText = "You're ice cold!";
+    }
+
+    return feedbackText;
+  }
 }
